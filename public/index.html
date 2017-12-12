@@ -9,33 +9,40 @@
   <!-- Compiled and minified CSS -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
   <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+  <link rel="stylesheet" type="" href="/styles/styles.css">
 
   <title>Chat App</title>
 </head>
 
-<body>
-  <div class="container">
+<body class="chat">
+  <div class="chat__sidebar">
+    <h3>People</h3>
+    <div id="users">
 
-    <p>Welcome to the chat app</p>
+    </div>
+  </div>
+  <div class="chat___main">
 
-    <ol id="messages">
+    <ol class="chat__messages" id="messages">
     </ol>
 
-    <form id="message-form">
-      <input type="text" name="message" placeholder="Message" />
-      <button class="btn">Send</button>
-    </form>
-    <button class="btn" id="send-location">Send Location</button>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/index.js"></script>
+    <div class="chat__footer">
+      <form id="message-form">
+        <input type="text" name="message" placeholder="Message" autofocus autocomplete="off" />
+        <button>Send</button>
+      </form>
+      <button id="send-location">Send location</button>
+    </div>
   </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/index.js"></script>
 
 </body>
 
