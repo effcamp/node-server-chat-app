@@ -59,6 +59,22 @@ socket.on('newLocationMessage', function(message) {
 socket.on('disconnect', function() {
   console.log('Disconnected from server');
 });
+socket.on('updateUserList', function(users) {
+  console.log(users);
+  const ol = document.createElement('ol');
+  // let ol = $('<ol></ol>');
+
+  users.forEach(function(user) {
+    const li = document.createElement('li');
+    const node = document.createTextNode(user);
+    li.appendChild(node);
+    ol.appendChild(li);
+    // ol.append($('<li></li>')).text(user);
+  });
+  const div = document.getElementById('users');
+  div.innerHTML = ol.outerHTML;
+  // $('#users').html(ol);
+});
 
 $('#message-form').on('submit', function(e) {
   e.preventDefault();
@@ -67,7 +83,6 @@ $('#message-form').on('submit', function(e) {
   socket.emit(
     'createMessage',
     {
-      from: 'User',
       text: messageTextBox.val()
     },
     function() {
